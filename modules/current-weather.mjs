@@ -13,9 +13,8 @@ export async function getCurrentWeather(lat, lon) {
 
     const weatherInfo = await response.json();
     console.log(weatherInfo)
-    console.log(weatherInfo.weather[0].icon)
     currentTemp.innerText = `${Math.floor(weatherInfo.main.temp)}°`
-    //
+    // FILL IN WEB PAGE
     currentConditions.innerHTML = `
     <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" width="1" height="1" alt="weather icon">
     <p>${weatherInfo.weather[0].description}</p>
@@ -39,5 +38,5 @@ function convert(tms) {
   const hours = date.getHours();
   const minutes = date.getMinutes().toString().padStart(2, '0');
   return `${hours}:${minutes}`
-  console.log(`${hours}:${minutes}`);
+  //console.log(`${hours}:${minutes}`);
 }
