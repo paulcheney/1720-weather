@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather | USA National Parks</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- OPEN GRAPH DATA -->
+    <meta property="og:title" content="Weather | USA National Parks">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://paulcheney.github.io/1720-weather/images/opengraph.jpg">
+    <meta property="og:logo" content="https://paulcheney.github.io/1720-weather/images/logo.svg" />
+    <meta property="og:url" content="https://paulcheney.github.io/1720-weather">
+    <meta property="og:description"
+        content="Know what you in for. See the local weather for national parks in the USA. ">
+    <meta property="og:site_name" content="Current Weather for National Parks">
+
+    <!-- FAV ICON LINKS -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Schedule" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- SCRIPTS -->
+    <script src="scripts/weather.js" type="module"></script>
+
+</head>
+
+<body>
+
+
+    <main>
+        <h1>WEATHER FOR <span id="parkname">Park Name</span></h1>
+        <p>National Park</p>
+
+        <div class="current">
+            <h2>Current Temperature</h2>
+            <div id="currentTemp">00°</div>
+
+            <div class="wcard" id="currentConditions"></div>
+        </div>
+
+
+    </main>
+
+    <nav>
+        <button id="bis">Biscayne <span>National Park</span></button>
+        <button id="cra">Crater Lake <span>National Park</span></button>
+        <button id="gre">Great Smoky Mountain <span>National Park</span></button>
+        <button id="mam">Mammoth Cave <span>National Park</span></button>
+    </nav>
+
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+@media only screen and (min-width: 40rem) {
+/************************** NAVIGATION **************************/
+nav {
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
+
+} /* end media query */
