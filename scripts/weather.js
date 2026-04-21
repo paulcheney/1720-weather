@@ -1,40 +1,32 @@
-// GRAB REFERERENCES TO BUTTONS AND CALL A FUNCTION
-const parkName = document.querySelector("#parkname")
-const currentTemp = document.querySelector("#currentTemp")
-const currentConditions = document.querySelector("#currentConditions")
-
 //IMPORT THE MODULES
+import {changeImage} from "../modules/current-weather.mjs";
 import {getCurrentWeather} from "../modules/current-weather.mjs";
 
 
-// FUNCTION TO CHANGE IMAGE AND PARK NAME
-function changeImage(park, img) {
-  document.body.style.backgroundImage = `url(images/${img})`;
-  parkName.innerText = park
-}
+
 
 //BUTTONS
 document.querySelector("#bis").addEventListener("click", () => {
   changeImage("Biscayne", "bis.webp");
-  const currentWeatherInfo = getCurrentWeather(25.4694, -80.1889)
+  getCurrentWeather(25.4694, -80.1889)
 });
 
 document.querySelector("#cra").addEventListener("click", () => {
   changeImage("Crater Lake", "cra.webp");
-  const currentWeatherInfo = getCurrentWeather(42.93776, -122.10151)
+  getCurrentWeather(42.93776, -122.10151)
 });
 
 document.querySelector("#gre").addEventListener("click", () => {
   changeImage("Great Smoky Mountain", "gre.webp");
-  const currentWeatherInfo = getCurrentWeather(35.60582, -83.53926)
+  getCurrentWeather(35.60582, -83.53926)
 });
 
 document.querySelector("#mam").addEventListener("click", () => {
   changeImage("Mammoth Cave", "mam.webp");
-  const currentWeatherInfo = getCurrentWeather(37.18718, -86.09774)
+  getCurrentWeather(37.18718, -86.09774)
 });
 
 
 // CALL DEFAULT WEATHER
 changeImage("Biscayne", "bis.webp");
-  const currentWeatherInfo = getCurrentWeather(25.4694, -80.1889)
+getCurrentWeather(25.4694, -80.1889)
