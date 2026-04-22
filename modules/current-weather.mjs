@@ -31,8 +31,8 @@ export async function getCurrentWeather(lat, lon) {
     - HIGH: ${Math.floor(weatherInfo.main.temp_min)}°</p>
     <p>Wind Speed: ${weatherInfo.wind.speed}mph</p>
     <p>Wind Gusts: ${weatherInfo.wind.gust}mph</p>
-    <p>Sunrise: ${convert(weatherInfo.sys.sunrise)}</p>
-    <p>Sunset: ${convert(weatherInfo.sys.sunset)}</p>
+    <p>Sunrise: ${convert(weatherInfo.sys.sunrise)} AM</p>
+    <p>Sunset: ${convert(weatherInfo.sys.sunset)} PM</p>
     `;
   } catch (err) {
     console.error("Fetch error:", err);
@@ -41,9 +41,11 @@ export async function getCurrentWeather(lat, lon) {
 
 //used in the function above
 function convert(tms) {
+  console.log(tms)
   const ts = tms * 1000; // convert to milliseconds
   const date = new Date(ts);
-  const hours = date.getHours();
+  const hours = date.getHours()>12 ? date.getHours()-12 : date.getHours();
+
   //const minutes = date.getMinutes();
   const minutes = date.getMinutes().toString().padStart(2, "0");
   return `${hours}:${minutes}`;
