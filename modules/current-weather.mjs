@@ -5,8 +5,6 @@ export function changeImage(park, img) {
 }
 
 
-
-
 // EXPORT ASYNC FUNCTION TO GRAB THE CURRENT WEATHER
 export async function getCurrentWeather(lat, lon) {
   const apiKey = "437209d363a4387bb2f5dffcea58bbee";
@@ -16,30 +14,32 @@ export async function getCurrentWeather(lat, lon) {
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
     );
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status} ${response.statusText}`);
-    }
+    displayWeather(await response.json())
 
-    const weatherInfo = await response.json();
-    console.log(weatherInfo);
-    document.querySelector('#currentTemp').innerText = `${Math.floor(weatherInfo.main.temp)}°`;
-    // fill in weather information
-    document.querySelector("#currentConditions").innerHTML = `
-    <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" alt="weather icon">
-    <p>${weatherInfo.weather[0].description}</p>
-    <p>LOW: ${Math.floor(weatherInfo.main.temp_max)}° 
-    - HIGH: ${Math.floor(weatherInfo.main.temp_min)}°</p>
-    <p>Wind Speed: ${weatherInfo.wind.speed}mph</p>
-    <p>Wind Gusts: ${weatherInfo.wind.gust}mph</p>
-    <p>Sunrise: ${convert(weatherInfo.sys.sunrise)} AM</p>
-    <p>Sunset: ${convert(weatherInfo.sys.sunset)} PM</p>
-    `;
   } catch (err) {
     console.error("Fetch error:", err);
   }
 }
 
-//used in the function above
+// internal function to display the current park weather info
+function displayWeather(weatherInfo) {
+  console.log(weatherInfo);
+  document.querySelector('#currentTemp').innerText = `${Math.floor(weatherInfo.main.temp)}°`;
+  // fill in weather information
+  document.querySelector("#currentConditions").innerHTML = `
+  <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" alt="weather icon">
+  <p>${weatherInfo.weather[0].description}</p>
+  <p>LOW: ${Math.floor(weatherInfo.main.temp_max)}° 
+  - HIGH: ${Math.floor(weatherInfo.main.temp_min)}°</p>
+  <p>Wind Speed: ${weatherInfo.wind.speed}mph</p>
+  <p>Wind Gusts: ${weatherInfo.wind.gust}mph</p>
+  <p>Sunrise: ${convert(weatherInfo.sys.sunrise)} AM</p>
+  <p>Sunset: ${convert(weatherInfo.sys.sunset)} PM</p>
+  `;
+}
+
+
+//internal function used to convert time
 function convert(tms) {
   console.log(tms)
   const ts = tms * 1000; // convert to milliseconds
