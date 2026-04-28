@@ -16,8 +16,8 @@ export async function getCurrentWeather(lat, lon) {
 
     displayWeather(await response.json())
 
-  } catch (err) {
-    console.error("Fetch error:", err);
+  } catch (error) {
+    console.error("Fetch error:", error);
   }
 }
 
@@ -40,14 +40,13 @@ function displayWeather(weatherInfo) {
 
 
 //internal function used to convert time
-function convert(tms) {
-  console.log(tms)
-  const ts = tms * 1000; // convert to milliseconds
-  const date = new Date(ts);
-  const hours = date.getHours()>12 ? date.getHours()-12 : date.getHours();
+function convert(ts) {
+  //console.log(ts)
+  const sunTime = new Date(ts * 1000);
+  const hours = sunTime.getHours()>12 ? sunTime.getHours()-12 : sunTime.getHours();
 
-  //const minutes = date.getMinutes();
-  const minutes = date.getMinutes().toString().padStart(2, "0");
+  //const minutes = sunTime.getMinutes();
+  const minutes = sunTime.getMinutes().toString().padStart(2, "0");
   return `${hours}:${minutes}`;
   //console.log(`${hours}:${minutes}`);
 }

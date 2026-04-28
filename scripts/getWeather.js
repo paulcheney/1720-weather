@@ -1,6 +1,5 @@
 //IMPORT THE MODULES
-import {changeImage} from "../modules/current-weather.mjs";
-import {getCurrentWeather} from "../modules/current-weather.mjs";
+import {getCurrentWeather, changeImage} from "../modules/weather.mjs";
 
 
 
