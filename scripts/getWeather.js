@@ -3,7 +3,6 @@ import {getCurrentWeather, changeImage} from "../modules/weather.mjs";
 
 
 
-
 //BUTTONS
 document.querySelector("#bis").addEventListener("click", () => {
   changeImage("Biscayne", "bis.webp");
